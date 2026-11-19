@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSI Games - Team Red vs Team Blue Battle Arena</title>
+  <meta name="description" content="Dual team ESL battle arena based on Princess Diana reading passage with grammar error spotting, odd-one-out, and reading tests.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Authentic Background Image & Ambient Sparkles -->
+  <div class="arena-bg-overlay"></div>
+  <div class="ambient-sparkles" id="ambient-sparkles"></div>
+
+  <!-- =========================================================
+       TOP NAVIGATION & BATTLE HUD BAR
+       ========================================================= -->
+  <header class="top-arena-bar">
+    <div class="arena-brand">
+      <div class="brand-crown">👑</div>
+      <div class="brand-text">
+        <h1>MSI ARENA DUEL</h1>
+        <p>ESL Students · Princess Diana Unit</p>
+      </div>
+    </div>
+
+    <!-- Center Live Running Timer -->
+    <div class="top-center-hud">
+      <div class="battle-timer-box" title="Battle Timer">
+        <span class="timer-icon">⏱️</span>
+        <span class="timer-display" id="timer-display">00:00.0</span>
+      </div>
+    </div>
+
+    <!-- Top Action Controls -->
+    <div class="top-action-controls">
+      <!-- Music ON/OFF Toggle -->
+      <button class="hud-btn music-toggle-btn" id="music-toggle-btn" title="Toggle Background Music">
+        <span class="music-icon">🎵</span>
+        <span class="music-text">Music: <strong>ON</strong></span>
+        <span class="sound-wave"><span></span><span></span><span></span></span>
+      </button>
+
+      <!-- Reading Passage Reference Button -->
+      <button class="hud-btn" id="open-passage-btn" title="Open Princess Diana Reading Passage">
+        <span>📖</span>
+        <span>Passage</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       MAIN BATTLE ARENA (SPLIT SCREEN LAYOUT)
+       ========================================================= -->
+  <main class="battle-arena-container">
+
+    <!-- TEAM RED CARD (LEFT) -->
+    <section class="team-arena-card team-red-card" id="team-red-card">
+      <div class="team-header-container">
+        <div class="team-crown-icon">👑</div>
+        <div class="team-badge-rosette team-red-badge">
+          <span class="laurel-decor">🌿</span>
+          <span>TEAM RED</span>
+          <span class="laurel-decor">🌿</span>
+        </div>
+        <div class="team-score-oval" id="team-red-score">0</div>
+      </div>
+
+      <!-- Live Interactive Question Panel for Team Red -->
+      <div class="team-question-panel" id="team-red-panel">
+        <!-- Rendered dynamically via js/game.js -->
+      </div>
+    </section>
+
+    <!-- CENTRAL LIGHTNING CLASH DIVIDER -->
+    <div class="arena-clash-divider">
+      <div class="lightning-bolt-glow" id="lightning-clash-btn" title="Lightning Clash!">⚡</div>
+      <div class="vs-badge">VS</div>
+    </div>
+
+    <!-- TEAM BLUE CARD (RIGHT) -->
+    <section class="team-arena-card team-blue-card" id="team-blue-card">
+      <div class="team-header-container">
+        <div class="team-crown-icon">👑</div>
+        <div class="team-badge-rosette team-blue-badge">
+          <span class="laurel-decor">🌿</span>
+          <span>TEAM BLUE</span>
+          <span class="laurel-decor">🌿</span>
+        </div>
+        <div class="team-score-oval" id="team-blue-score">0</div>
+      </div>
+
+      <!-- Live Interactive Question Panel for Team Blue -->
+      <div class="team-question-panel" id="team-blue-panel">
+        <!-- Rendered dynamically via js/game.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       INITIAL START BATTLE OVERLAY (FOR BROWSER AUDIO POLICY)
+       ========================================================= -->
+  <div class="modal-backdrop" id="start-battle-overlay">
+    <div class="results-modal-card" style="max-width: 620px;">
+      <div class="winner-crown-hero">⚡</div>
+      <h2 class="winner-headline tie-win" style="font-size: 2rem;">READY FOR THE BATTLE?</h2>
+      <p class="winner-reason" style="margin-bottom: 24px;">
+        12 Different Questions per Team: Spot Grammar Mistakes, Odd One Out & Reading Comprehension from the "Princess Diana" passage!
+      </p>
+      <button class="restart-game-btn" id="start-battle-btn">
+        🔥 START ARENA BATTLE
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       READING PASSAGE REFERENCE MODAL
+       ========================================================= -->
+  <div class="modal-backdrop hidden" id="passage-modal">
+    <div class="passage-modal-card">
+      <div class="modal-head">
+        <h2>📖 Princess Diana (ESL_STUDENTS #72)</h2>
+        <button class="modal-close-btn" id="close-passage-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="passage-text-quote" id="passage-text-content"></div>
+        <h4 style="margin-bottom: 12px; color: #ffd859; font-size: 1.05rem;">Key Vocabulary Glossary:</h4>
+        <div class="vocab-grid" id="passage-vocab-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       FINAL RESULTS & VICTORY CELEBRATION MODAL
+       ========================================================= -->
+  <div class="modal-backdrop hidden" id="results-modal">
+    <div class="results-modal-card">
+      <div class="winner-crown-hero">👑</div>
+      <h2 class="winner-headline" id="results-winner-headline">TEAM RED WINS!</h2>
+      <p class="winner-reason" id="results-winner-reason">
+        Team Red completed the match with the highest number of correct answers.
+      </p>
+
+      <!-- Side-by-side stats comparison -->
+      <div class="results-comparison-board">
+        <div class="team-result-box red">
+          <div class="result-team-title">TEAM RED</div>
+          <div class="result-stat-row">
+            <span>Score:</span>
+            <strong id="res-red-score">0 / 12</strong>
+          </div>
+          <div class="result-stat-row">
+            <span>Time Taken:</span>
+            <strong id="res-red-time">00:00</strong>
+          </div>
+          <div class="result-stat-row">
+            <span>Accuracy:</span>
+            <strong id="res-red-acc">0%</strong>
+          </div>
+        </div>
+
+        <div style="font-size: 2rem; font-weight: 900; color: #ffd700;">VS</div>
+
+        <div class="team-result-box blue">
+          <div class="result-team-title">TEAM BLUE</div>
+          <div class="result-stat-row">
+            <span>Score:</span>
+            <strong id="res-blue-score">0 / 12</strong>
+          </div>
+          <div class="result-stat-row">
+            <span>Time Taken:</span>
+            <strong id="res-blue-time">00:00</strong>
+          </div>
+          <div class="result-stat-row">
+            <span>Accuracy:</span>
+            <strong id="res-blue-acc">0%</strong>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size: 0.9rem; color: #a5b4fc; margin-bottom: 24px;">
+        Rules: More correct answers are superior. In case of equal scores, the fastest team wins!
+      </p>
+
+      <button class="restart-game-btn" id="restart-game-btn">
+        🔄 PLAY AGAIN
+      </button>
+    </div>
+  </div>
+
+  <!-- Game Scripts -->
+  <script type="module" src="js/audio.js"></script>
+  <script type="module" src="js/data.js"></script>
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>
