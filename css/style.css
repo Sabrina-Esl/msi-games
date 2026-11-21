@@ -1087,6 +1087,164 @@ body {
 }
 
 /* =========================================================
+   VIRTUAL ON-SCREEN KEYBOARDS (RED & BLUE)
+   ========================================================= */
+.team-virtual-keyboard {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  backdrop-filter: blur(14px);
+  user-select: none;
+  transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  width: 100%;
+}
+
+.key-btn {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key-btn:active {
+  transform: translateY(2px) scale(0.96);
+}
+
+.key-btn.key-backspace {
+  flex: 1.6;
+  font-size: 1.15rem;
+}
+
+.key-btn.key-action {
+  flex: 1.5;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.key-btn.key-space {
+  flex: 3.5;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.key-btn.key-submit {
+  flex: 2.8;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* RED KEYBOARD SPECIFIC */
+.team-virtual-keyboard.red-keyboard {
+  background: rgba(30, 8, 20, 0.75);
+  border: 1.5px solid rgba(255, 42, 109, 0.45);
+  box-shadow: 0 4px 20px rgba(255, 42, 109, 0.2), inset 0 0 15px rgba(255, 42, 109, 0.08);
+}
+
+.red-keyboard .key-btn {
+  background: rgba(255, 42, 109, 0.14);
+  border: 1px solid rgba(255, 75, 125, 0.38);
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(255, 42, 109, 0.7);
+}
+
+.red-keyboard .key-btn:hover {
+  background: rgba(255, 42, 109, 0.35);
+  border-color: #ff2a6d;
+  box-shadow: 0 0 10px rgba(255, 42, 109, 0.6);
+}
+
+.red-keyboard .key-btn:active,
+.red-keyboard .key-btn.pressed {
+  background: #ff2a6d;
+  color: #ffffff;
+  box-shadow: 0 0 16px #ff2a6d;
+}
+
+.red-keyboard .key-submit {
+  background: linear-gradient(135deg, #ff2a6d 0%, #aa0636 100%);
+  border-color: #ff759f;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
+}
+
+.red-keyboard .key-submit:hover {
+  box-shadow: 0 0 18px rgba(255, 42, 109, 0.9);
+}
+
+/* BLUE KEYBOARD SPECIFIC */
+.team-virtual-keyboard.blue-keyboard {
+  background: rgba(8, 20, 38, 0.75);
+  border: 1.5px solid rgba(0, 210, 255, 0.45);
+  box-shadow: 0 4px 20px rgba(0, 210, 255, 0.2), inset 0 0 15px rgba(0, 210, 255, 0.08);
+}
+
+.blue-keyboard .key-btn {
+  background: rgba(0, 210, 255, 0.14);
+  border: 1px solid rgba(0, 200, 255, 0.38);
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(0, 210, 255, 0.7);
+}
+
+.blue-keyboard .key-btn:hover {
+  background: rgba(0, 210, 255, 0.35);
+  border-color: #00d2ff;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+}
+
+.blue-keyboard .key-btn:active,
+.blue-keyboard .key-btn.pressed {
+  background: #00d2ff;
+  color: #07152b;
+  box-shadow: 0 0 16px #00d2ff;
+}
+
+.blue-keyboard .key-submit {
+  background: linear-gradient(135deg, #00d2ff 0%, #006eb8 100%);
+  border-color: #6ee6ff;
+  color: #07152b;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+.blue-keyboard .key-submit:hover {
+  box-shadow: 0 0 18px rgba(0, 210, 255, 0.9);
+}
+
+/* Keyboards Active / Inactive states */
+.team-virtual-keyboard.keyboard-dimmed {
+  opacity: 0.4;
+  pointer-events: none;
+  filter: grayscale(0.25);
+}
+
+.team-virtual-keyboard.keyboard-active {
+  opacity: 1;
+  pointer-events: auto;
+  filter: none;
+}
+
+/* =========================================================
    RESPONSIVE DESIGN (FOR LAPTOPS, TABLETS & SMARTBOARDS)
    ========================================================= */
 @media (max-width: 1080px) {

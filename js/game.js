@@ -115,6 +115,73 @@ class BattleGame {
     } else {
       this.startGame();
     }
+
+    // Initialize Virtual Keyboards for Red and Blue teams
+    this.initVirtualKeyboards();
+  }
+
+  initVirtualKeyboards() {
+    ["red", "blue"].forEach(teamKey => {
+      const keyboard = document.getElementById(`team-${teamKey}-keyboard`);
+      if (!keyboard) return;
+
+      const keys = keyboard.querySelectorAll(".key-btn");
+      keys.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          sound.playClick();
+
+          // Tactile visual feedback
+          btn.classList.add("pressed");
+          setTimeout(() => btn.classList.remove("pressed"), 120);
+
+          this.handleVirtualKeyPress(teamKey, btn.getAttribute("data-key"));
+        });
+      });
+    });
+  }
+
+  handleVirtualKeyPress(teamKey, key) {
+    const team = this.teams[teamKey];
+    const q = team.questions[team.currentIndex];
+    if (!q || q.type !== "grammar") return;
+
+    const inputField = document.getElementById(`${teamKey}-correction-input`);
+    const hintElem = document.getElementById(`${teamKey}-selected-hint`);
+    const submitBtn = document.getElementById(`${teamKey}-submit-btn`);
+
+    if (!inputField) return;
+
+    if (key === "backspace") {
+      inputField.value = inputField.value.slice(0, -1);
+      inputField.dispatchEvent(new Event("input", { bubbles: true }));
+    } else if (key === "clear") {
+      inputField.value = "";
+      inputField.dispatchEvent(new Event("input", { bubbles: true }));
+    } else if (key === "space") {
+      if (!team.selectedWord) {
+        if (hintElem) hintElem.innerHTML = "⚠️ <strong style='color:#ffd859;'>Please tap the mistaken word above first!</strong>";
+        return;
+      }
+      inputField.value += " ";
+      inputField.dispatchEvent(new Event("input", { bubbles: true }));
+    } else if (key === "submit") {
+      if (submitBtn && !submitBtn.disabled) {
+        submitBtn.click();
+      } else if (!team.selectedWord && hintElem) {
+        hintElem.innerHTML = "⚠️ <strong style='color:#ffd859;'>Please tap the mistaken word above first!</strong>";
+      }
+    } else {
+      // Alphabetical characters
+      if (!team.selectedWord) {
+        if (hintElem) {
+          hintElem.innerHTML = "⚠️ <strong style='color:#ffd859;'>Please tap the mistaken word in the sentence first!</strong>";
+        }
+        return;
+      }
+      inputField.value += key;
+      inputField.dispatchEvent(new Event("input", { bubbles: true }));
+    }
   }
 
   startGame() {
@@ -215,6 +282,18 @@ class BattleGame {
 
     container.innerHTML = questionHTML;
     this.attachQuestionEvents(teamKey, q);
+
+    // Update Virtual Keyboard state for this team
+    const keyboard = document.getElementById(`team-${teamKey}-keyboard`);
+    if (keyboard) {
+      if (q.type === "grammar") {
+        keyboard.classList.add("keyboard-active");
+        keyboard.classList.remove("keyboard-dimmed");
+      } else {
+        keyboard.classList.add("keyboard-dimmed");
+        keyboard.classList.remove("keyboard-active");
+      }
+    }
   }
 
   getGrammarTemplate(teamKey, q) {
@@ -497,6 +576,12 @@ class BattleGame {
     }
 
     const container = document.getElementById(`team-${teamKey}-panel`);
+    const keyboard = document.getElementById(`team-${teamKey}-keyboard`);
+    if (keyboard) {
+      keyboard.classList.add("keyboard-dimmed");
+      keyboard.classList.remove("keyboard-active");
+    }
+
     if (container) {
       container.innerHTML = `
         <div class="team-complete-box">
