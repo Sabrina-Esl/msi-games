@@ -73,6 +73,14 @@
         <!-- Rendered dynamically via js/game.js -->
       </div>
 
+      <!-- Keyboard Header / Toggle Bar -->
+      <div class="keyboard-dock-header">
+        <button type="button" class="keyboard-toggle-btn red-toggle" id="toggle-red-keyboard" aria-expanded="true" title="Toggle Keyboard Visibility">
+          <span class="toggle-icon">⌨️</span>
+          <span class="toggle-text">Hide Keyboard</span>
+        </button>
+      </div>
+
       <!-- Red Virtual Keyboard for Team Red -->
       <div class="team-virtual-keyboard red-keyboard" id="team-red-keyboard" aria-label="Team Red Keyboard">
         <div class="keyboard-row">
@@ -87,7 +95,7 @@
           <button type="button" class="key-btn" data-key="o">O</button>
           <button type="button" class="key-btn" data-key="p">P</button>
         </div>
-        <div class="keyboard-row">
+        <div class="keyboard-row row-indent">
           <button type="button" class="key-btn" data-key="a">A</button>
           <button type="button" class="key-btn" data-key="s">S</button>
           <button type="button" class="key-btn" data-key="d">D</button>
@@ -99,6 +107,7 @@
           <button type="button" class="key-btn" data-key="l">L</button>
         </div>
         <div class="keyboard-row">
+          <button type="button" class="key-btn key-shift" data-key="shift" title="Shift">⇧</button>
           <button type="button" class="key-btn" data-key="z">Z</button>
           <button type="button" class="key-btn" data-key="x">X</button>
           <button type="button" class="key-btn" data-key="c">C</button>
@@ -109,9 +118,10 @@
           <button type="button" class="key-btn key-backspace" data-key="backspace" title="Backspace">⌫</button>
         </div>
         <div class="keyboard-row">
-          <button type="button" class="key-btn key-action" data-key="clear" title="Clear Text">Clear</button>
-          <button type="button" class="key-btn key-space" data-key="space" title="Space Bar">Space</button>
-          <button type="button" class="key-btn key-submit" data-key="submit" title="Submit Answer">Submit ↵</button>
+          <button type="button" class="key-btn key-num" data-key="123">123</button>
+          <button type="button" class="key-btn key-globe" data-key="clear" title="Clear Text">Clear</button>
+          <button type="button" class="key-btn key-space" data-key="space" title="Space">Space</button>
+          <button type="button" class="key-btn key-enter" data-key="submit" title="Enter">Enter</button>
         </div>
       </div>
     </section>
@@ -139,6 +149,14 @@
         <!-- Rendered dynamically via js/game.js -->
       </div>
 
+      <!-- Keyboard Header / Toggle Bar -->
+      <div class="keyboard-dock-header">
+        <button type="button" class="keyboard-toggle-btn blue-toggle" id="toggle-blue-keyboard" aria-expanded="true" title="Toggle Keyboard Visibility">
+          <span class="toggle-icon">⌨️</span>
+          <span class="toggle-text">Hide Keyboard</span>
+        </button>
+      </div>
+
       <!-- Blue Virtual Keyboard for Team Blue -->
       <div class="team-virtual-keyboard blue-keyboard" id="team-blue-keyboard" aria-label="Team Blue Keyboard">
         <div class="keyboard-row">
@@ -153,7 +171,7 @@
           <button type="button" class="key-btn" data-key="o">O</button>
           <button type="button" class="key-btn" data-key="p">P</button>
         </div>
-        <div class="keyboard-row">
+        <div class="keyboard-row row-indent">
           <button type="button" class="key-btn" data-key="a">A</button>
           <button type="button" class="key-btn" data-key="s">S</button>
           <button type="button" class="key-btn" data-key="d">D</button>
@@ -165,6 +183,7 @@
           <button type="button" class="key-btn" data-key="l">L</button>
         </div>
         <div class="keyboard-row">
+          <button type="button" class="key-btn key-shift" data-key="shift" title="Shift">⇧</button>
           <button type="button" class="key-btn" data-key="z">Z</button>
           <button type="button" class="key-btn" data-key="x">X</button>
           <button type="button" class="key-btn" data-key="c">C</button>
@@ -175,9 +194,10 @@
           <button type="button" class="key-btn key-backspace" data-key="backspace" title="Backspace">⌫</button>
         </div>
         <div class="keyboard-row">
-          <button type="button" class="key-btn key-action" data-key="clear" title="Clear Text">Clear</button>
-          <button type="button" class="key-btn key-space" data-key="space" title="Space Bar">Space</button>
-          <button type="button" class="key-btn key-submit" data-key="submit" title="Submit Answer">Submit ↵</button>
+          <button type="button" class="key-btn key-num" data-key="123">123</button>
+          <button type="button" class="key-btn key-globe" data-key="clear" title="Clear Text">Clear</button>
+          <button type="button" class="key-btn key-space" data-key="space" title="Space">Space</button>
+          <button type="button" class="key-btn key-enter" data-key="submit" title="Enter">Enter</button>
         </div>
       </div>
     </section>

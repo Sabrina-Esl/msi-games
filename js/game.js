@@ -123,6 +123,21 @@ class BattleGame {
   initVirtualKeyboards() {
     ["red", "blue"].forEach(teamKey => {
       const keyboard = document.getElementById(`team-${teamKey}-keyboard`);
+      const toggleBtn = document.getElementById(`toggle-${teamKey}-keyboard`);
+
+      // Bind Hide / Show toggle button
+      if (toggleBtn && keyboard) {
+        toggleBtn.addEventListener("click", () => {
+          sound.playClick();
+          const isCollapsed = keyboard.classList.toggle("is-collapsed");
+          toggleBtn.setAttribute("aria-expanded", !isCollapsed);
+          const iconSpan = toggleBtn.querySelector(".toggle-icon");
+          const textSpan = toggleBtn.querySelector(".toggle-text");
+          if (iconSpan) iconSpan.textContent = isCollapsed ? "👁️" : "⌨️";
+          if (textSpan) textSpan.textContent = isCollapsed ? "Show Keyboard" : "Hide Keyboard";
+        });
+      }
+
       if (!keyboard) return;
 
       const keys = keyboard.querySelectorAll(".key-btn");
@@ -146,13 +161,27 @@ class BattleGame {
     const q = team.questions[team.currentIndex];
     if (!q || q.type !== "grammar") return;
 
+    const keyboard = document.getElementById(`team-${teamKey}-keyboard`);
     const inputField = document.getElementById(`${teamKey}-correction-input`);
     const hintElem = document.getElementById(`${teamKey}-selected-hint`);
     const submitBtn = document.getElementById(`${teamKey}-submit-btn`);
 
     if (!inputField) return;
 
-    if (key === "backspace") {
+    if (key === "shift") {
+      team.shiftActive = !team.shiftActive;
+      if (keyboard) {
+        const letterBtns = keyboard.querySelectorAll(".key-btn:not(.key-shift):not(.key-backspace):not(.key-num):not(.key-globe):not(.key-space):not(.key-enter)");
+        letterBtns.forEach(btn => {
+          const k = btn.getAttribute("data-key");
+          if (k) btn.textContent = team.shiftActive ? k.toUpperCase() : k.toLowerCase();
+        });
+        const shiftBtn = keyboard.querySelector(".key-shift");
+        if (shiftBtn) {
+          shiftBtn.classList.toggle("pressed", !!team.shiftActive);
+        }
+      }
+    } else if (key === "backspace") {
       inputField.value = inputField.value.slice(0, -1);
       inputField.dispatchEvent(new Event("input", { bubbles: true }));
     } else if (key === "clear") {
@@ -171,6 +200,9 @@ class BattleGame {
       } else if (!team.selectedWord && hintElem) {
         hintElem.innerHTML = "⚠️ <strong style='color:#ffd859;'>Please tap the mistaken word above first!</strong>";
       }
+    } else if (key === "123") {
+      // Toggle numbers or symbols hint
+      sound.playClick();
     } else {
       // Alphabetical characters
       if (!team.selectedWord) {
@@ -179,7 +211,8 @@ class BattleGame {
         }
         return;
       }
-      inputField.value += key;
+      const charToInsert = team.shiftActive ? key.toUpperCase() : key.toLowerCase();
+      inputField.value += charToInsert;
       inputField.dispatchEvent(new Event("input", { bubbles: true }));
     }
   }
