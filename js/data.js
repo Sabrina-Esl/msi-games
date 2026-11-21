@@ -1,108 +1,118 @@
 // Question Bank and Reading Passage Data for MSI Games - Team Red vs Team Blue
-// Based strictly on "Princess Diana" from ESL_STUDENTS
+// Based on "Crime and Society" (Why Does Crime Happen?)
 
 export const PASSAGE_DATA = {
-  title: "Princess Diana",
-  source: "ESL_STUDENTS #72",
-  text: `Diana, Princess of Wales, became famous when she decided to marry Prince Charles. She became the most photographed person in the world. Everywhere she went, there were photographers taking pictures of her and people were very interested in her clothes, where she went on holiday and who she was with. They were also interested in the problems between her and her husband. When they divorced she remained very popular. In addition to her image as a 'star', Princess Diana used her influence to attract attention to some charities. She was very sympathetic to all people who were ill and unhappy and dedicated time to helping them and drawing public attention to their problems. She used to visit homeless people regularly and did a lot of work for the National AIDS Trust; she visited people suffering from AIDS.`,
+  title: "Crime and Society",
+  subtitle: "Why Does Crime Happen?",
+  source: "ESL Reading · Crime and Society",
+  text: `Crime is a major social issue that affects individuals, families, and communities around the world. People commit crimes for different reasons, including poverty, unemployment, lack of education, peer pressure, and family problems. However, not all people who experience poverty or difficult circumstances become criminals.
+
+Some crimes, such as theft, robbery, fraud, and cybercrime, can have serious consequences for victims. Crime also creates fear in communities and can reduce people's trust in others. For example, people may feel unsafe walking alone at night or leaving their belongings in public places.
+
+Education, employment opportunities, and family support can play an important role in preventing crime. Schools can teach young people about responsibility, respect, and the consequences of illegal behavior. Governments can also reduce crime by creating jobs, improving social services, and ensuring fair laws.
+
+Although punishment is important, prevention is equally important. Helping people make better choices and providing opportunities for a better life may reduce crime in the long term.`,
   vocabulary: [
-    { word: "photographers", def: "people who take photographs, especially professionally" },
-    { word: "divorced", def: "legally ended a marriage" },
-    { word: "remained", def: "stayed; continued to be" },
-    { word: "image", def: "how a person is seen or thought of by others" },
-    { word: "influence", def: "the power to affect people or events" },
-    { word: "charities", def: "organizations that help people in need" },
-    { word: "sympathetic", def: "showing understanding and care for someone's problems" },
-    { word: "dedicated", def: "gave a lot of time and effort to something" },
-    { word: "regularly", def: "often; at consistent times" }
+    { word: "Crime", def: "an illegal activity" },
+    { word: "Victim", def: "a person harmed by a crime" },
+    { word: "Peer pressure", def: "influence from people of the same age or social group" },
+    { word: "Unemployment", def: "not having a job" },
+    { word: "Consequences", def: "results of an action" },
+    { word: "Prevention", def: "stopping something from happening" },
+    { word: "Responsibility", def: "being accountable for one's actions" },
+    { word: "Illegal behavior", def: "actions against the law" }
+  ],
+  grammarFocus: [
+    { rule: "Present Simple (Subject-Verb Agreement)", example: "Crime affects communities. / Education helps prevent crime." },
+    { rule: "Modal Verbs (Modal + Base Form)", example: "Governments should create more jobs. / Schools can teach responsibility." }
   ]
 };
 
 // 12 Distinct Questions for TEAM RED
 export const TEAM_RED_QUESTIONS = [
-  // 1. Grammar Mistake Catching
+  // 1. Grammar Mistake Catching (Present Simple)
   {
     id: "r1",
     type: "grammar",
     typeName: "Catch Grammar Mistake",
-    instruction: "Click on the mistaken word in the sentence, type the correction, and click Submit.",
-    sentence: "Everywhere Diana went, there was photographers taking pictures of her.",
-    mistakeWord: "was",
-    correctAnswer: "were",
-    explanation: "'Photographers' is plural, so the past plural verb 'were' is needed ('there were photographers')."
+    instruction: "Click on the mistaken word in the sentence, type the correct form, and click Submit.",
+    sentence: "Crime is a major social issue that affect individuals and communities.",
+    mistakeWord: "affect",
+    correctAnswer: "affects",
+    explanation: "In Present Simple, the singular relative subject ('issue') requires 'affects' with an -s."
   },
-  // 2. Grammar Mistake Catching
+  // 2. Grammar Mistake Catching (Modal + Base Verb)
   {
     id: "r2",
     type: "grammar",
     typeName: "Catch Grammar Mistake",
-    instruction: "Click on the mistaken word in the sentence, type the correction, and click Submit.",
-    sentence: "When they divorced, she remain very popular around the world.",
-    mistakeWord: "remain",
-    correctAnswer: "remained",
-    explanation: "Past tense is required to match 'divorced' ('she remained very popular')."
+    instruction: "Click on the mistaken word in the sentence, type the correct form, and click Submit.",
+    sentence: "Schools can teaches young people about responsibility and respect.",
+    mistakeWord: "teaches",
+    correctAnswer: "teach",
+    explanation: "After modal verbs like 'can', use the base form of the verb ('can teach')."
   },
-  // 3. Grammar Mistake Catching
+  // 3. Grammar Mistake Catching (Modal + Base Verb)
   {
     id: "r3",
     type: "grammar",
     typeName: "Catch Grammar Mistake",
-    instruction: "Click on the mistaken word in the sentence, type the correction, and click Submit.",
-    sentence: "Princess Diana use her influence to attract attention to charities.",
-    mistakeWord: "use",
-    correctAnswer: "used",
-    explanation: "Past simple 'used' is required to describe her past action."
+    instruction: "Click on the mistaken word in the sentence, type the correct form, and click Submit.",
+    sentence: "Governments should creating more job opportunities for young people.",
+    mistakeWord: "creating",
+    correctAnswer: "create",
+    explanation: "The modal verb 'should' must be followed by the base form ('should create'), not the -ing form."
   },
-  // 4. Grammar Mistake Catching
+  // 4. Grammar Mistake Catching (Present Simple / Plural Subject)
   {
     id: "r4",
     type: "grammar",
     typeName: "Catch Grammar Mistake",
-    instruction: "Click on the mistaken word in the sentence, type the correction, and click Submit.",
-    sentence: "She dedicated time to help people who were ill and unhappy.",
-    mistakeWord: "help",
-    correctAnswer: "helping",
-    explanation: "The expression is 'dedicated time to helping' (verb + preposition 'to' followed by gerund -ing)."
+    instruction: "Click on the mistaken word in the sentence, type the correct form, and click Submit.",
+    sentence: "Education and family support helps reduce illegal behavior.",
+    mistakeWord: "helps",
+    correctAnswer: "help",
+    explanation: "The compound subject 'Education and family support' is plural, so it requires 'help' without -s."
   },
   // 5. Odd One Out
   {
     id: "r5",
     type: "odd_one_out",
     typeName: "Odd One Out",
-    instruction: "Select the word that does NOT belong with the others based on royal family figures in the text.",
-    options: ["Princess", "Charles", "Prince", "Soldier"],
-    correctAnswer: "Soldier",
-    explanation: "'Princess', 'Charles', and 'Prince' refer to British royalty in the passage; 'Soldier' is not part of the royal family."
+    instruction: "Select the word that is NOT a specific type of crime mentioned in the passage.",
+    options: ["Theft", "Robbery", "Cybercrime", "Unemployment"],
+    correctAnswer: "Unemployment",
+    explanation: "Theft, Robbery, and Cybercrime are specific crimes; Unemployment is a social cause/condition."
   },
   // 6. Odd One Out
   {
     id: "r6",
     type: "odd_one_out",
     typeName: "Odd One Out",
-    instruction: "Select the odd word out based on parts of speech from the passage.",
-    options: ["Sympathetic", "Popular", "Famous", "Divorce"],
-    correctAnswer: "Divorce",
-    explanation: "'Sympathetic', 'Popular', and 'Famous' are adjectives describing Diana; 'Divorce' is a noun/verb."
+    instruction: "Select the odd word out based on parts of speech from the vocabulary list.",
+    options: ["Responsibility", "Prevention", "Consequences", "Illegal"],
+    correctAnswer: "Illegal",
+    explanation: "'Responsibility', 'Prevention', and 'Consequences' are nouns; 'Illegal' is an adjective."
   },
   // 7. Odd One Out
   {
     id: "r7",
     type: "odd_one_out",
     typeName: "Odd One Out",
-    instruction: "Select the odd word out based on Diana's humanitarian causes in the passage.",
-    options: ["Homelessness", "AIDS", "Charities", "Nightclub"],
-    correctAnswer: "Nightclub",
-    explanation: "'Homelessness', 'AIDS', and 'Charities' are social and humanitarian causes Diana supported; 'Nightclub' is unrelated."
+    instruction: "Select the odd word out based on crime prevention vs causes.",
+    options: ["Education", "Creating jobs", "Family support", "Peer pressure"],
+    correctAnswer: "Peer pressure",
+    explanation: "Education, Creating jobs, and Family support prevent crime; Peer pressure is a reason why crime happens."
   },
   // 8. Odd One Out
   {
     id: "r8",
     type: "odd_one_out",
     typeName: "Odd One Out",
-    instruction: "Select the odd word out based on types of adverbs.",
-    options: ["Regularly", "Everywhere", "Often", "Frequently"],
-    correctAnswer: "Everywhere",
-    explanation: "'Everywhere' is an adverb of place, while 'regularly', 'often', and 'frequently' are adverbs of frequency."
+    instruction: "Select the word that does NOT belong based on verb categories.",
+    options: ["Should", "Can", "May", "Commit"],
+    correctAnswer: "Commit",
+    explanation: "'Should', 'Can', and 'May' are modal auxiliary verbs; 'Commit' is an action verb."
   },
   // 9. Reading Comprehension Test
   {
@@ -110,15 +120,15 @@ export const TEAM_RED_QUESTIONS = [
     type: "test",
     typeName: "Reading Test",
     instruction: "Read the question and select the correct answer according to the passage.",
-    question: "When did Diana, Princess of Wales, first become famous worldwide?",
+    question: "Why do people commit crimes according to the passage?",
     options: [
-      "A) When she decided to marry Prince Charles",
-      "B) When she started the National AIDS Trust",
-      "C) After she traveled abroad on holiday",
-      "D) When she won a photography competition"
+      "A) Only due to biological and genetic factors",
+      "B) For reasons like poverty, unemployment, lack of education, and peer pressure",
+      "C) Because laws encourage people to break them",
+      "D) Solely because of online video games"
     ],
-    correctAnswer: "A",
-    explanation: "The passage states: 'Diana, Princess of Wales, became famous when she decided to marry Prince Charles.'"
+    correctAnswer: "B",
+    explanation: "Paragraph 1 states people commit crimes for reasons including poverty, unemployment, lack of education, peer pressure, and family problems."
   },
   // 10. Reading Comprehension Test
   {
@@ -126,15 +136,15 @@ export const TEAM_RED_QUESTIONS = [
     type: "test",
     typeName: "Reading Test",
     instruction: "Read the question and select the correct answer according to the passage.",
-    question: "What were people specifically interested in regarding Diana's life?",
+    question: "How does crime affect trust within a community?",
     options: [
-      "A) Her cooking recipes and garden design",
-      "B) Her clothes, where she went on holiday, and who she was with",
-      "C) Her favorite sports teams and car collection",
-      "D) Her university degrees in economics"
+      "A) It creates fear and can reduce people's trust in others",
+      "B) It makes everyone trust each other much more",
+      "C) It has zero effect on neighborhoods or public safety",
+      "D) It encourages people to leave their belongings everywhere"
     ],
-    correctAnswer: "B",
-    explanation: "The text says: 'people were very interested in her clothes, where she went on holiday and who she was with.'"
+    correctAnswer: "A",
+    explanation: "Paragraph 2 states: 'Crime also creates fear in communities and can reduce people\\'s trust in others.'"
   },
   // 11. Reading Comprehension Test
   {
@@ -142,15 +152,15 @@ export const TEAM_RED_QUESTIONS = [
     type: "test",
     typeName: "Reading Test",
     instruction: "Read the question and select the correct answer according to the passage.",
-    question: "What happened to Princess Diana's popularity after she and Prince Charles divorced?",
+    question: "What values can schools teach young people to prevent illegal behavior?",
     options: [
-      "A) She was completely forgotten by the public",
-      "B) She moved away and stopped being in newspapers",
-      "C) She remained very popular",
-      "D) People stopped caring about her charity work"
+      "A) Responsibility, respect, and the consequences of illegal actions",
+      "B) How to evade police detection",
+      "C) How to make quick money without working",
+      "D) How to ignore laws they disagree with"
     ],
-    correctAnswer: "C",
-    explanation: "The passage clearly states: 'When they divorced she remained very popular.'"
+    correctAnswer: "A",
+    explanation: "Paragraph 3 notes: 'Schools can teach young people about responsibility, respect, and the consequences of illegal behavior.'"
   },
   // 12. Reading Comprehension Test
   {
@@ -158,103 +168,103 @@ export const TEAM_RED_QUESTIONS = [
     type: "test",
     typeName: "Reading Test",
     instruction: "Read the question and select the correct answer according to the passage.",
-    question: "According to the passage, Diana was very sympathetic to:",
+    question: "What is the author's viewpoint on punishment and prevention?",
     options: [
-      "A) Only wealthy international celebrities",
-      "B) Aggressive photographers and reporters",
-      "C) All people who were ill and unhappy",
-      "D) Government politicians and ministers"
+      "A) Punishment is useless and should be completely stopped",
+      "B) Although punishment is important, prevention is equally important",
+      "C) Punishment alone solves all long-term social problems",
+      "D) Prevention is impossible in modern society"
     ],
-    correctAnswer: "C",
-    explanation: "The passage mentions: 'She was very sympathetic to all people who were ill and unhappy and dedicated time to helping them...'"
+    correctAnswer: "B",
+    explanation: "The conclusion clearly states: 'Although punishment is important, prevention is equally important.'"
   }
 ];
 
 // 12 Distinct Questions for TEAM BLUE (Completely Different from Team Red)
 export const TEAM_BLUE_QUESTIONS = [
-  // 1. Grammar Mistake Catching
+  // 1. Grammar Mistake Catching (Present Simple)
   {
     id: "b1",
     type: "grammar",
     typeName: "Catch Grammar Mistake",
-    instruction: "Click on the mistaken word in the sentence, type the correction, and click Submit.",
-    sentence: "Diana became the most photographed person on the world.",
-    mistakeWord: "on",
-    correctAnswer: "in",
-    explanation: "The correct preposition is 'in the world', not 'on the world'."
+    instruction: "Click on the mistaken word in the sentence, type the correct form, and click Submit.",
+    sentence: "Education help people make better choices in life.",
+    mistakeWord: "help",
+    correctAnswer: "helps",
+    explanation: "In Present Simple, the singular non-count subject 'Education' requires 'helps' with an -s."
   },
-  // 2. Grammar Mistake Catching
+  // 2. Grammar Mistake Catching (Modal + Base Verb)
   {
     id: "b2",
     type: "grammar",
     typeName: "Catch Grammar Mistake",
-    instruction: "Click on the mistaken word in the sentence, type the correction, and click Submit.",
-    sentence: "People was very interested in where Diana went on holiday.",
-    mistakeWord: "was",
-    correctAnswer: "were",
-    explanation: "'People' is plural, so it requires 'were' ('people were very interested')."
+    instruction: "Click on the mistaken word in the sentence, type the correct form, and click Submit.",
+    sentence: "Crime can reduces people's trust in other members of society.",
+    mistakeWord: "reduces",
+    correctAnswer: "reduce",
+    explanation: "After the modal verb 'can', always use the base form ('can reduce') without -s."
   },
-  // 3. Grammar Mistake Catching
+  // 3. Grammar Mistake Catching (Modal + Base Verb)
   {
     id: "b3",
     type: "grammar",
     typeName: "Catch Grammar Mistake",
-    instruction: "Click on the mistaken word in the sentence, type the correction, and click Submit.",
-    sentence: "She used to visited homeless people in London regularly.",
-    mistakeWord: "visited",
-    correctAnswer: "visit",
-    explanation: "'Used to' is followed by the base infinitive verb form ('used to visit')."
+    instruction: "Click on the mistaken word in the sentence, type the correct form, and click Submit.",
+    sentence: "Governments must ensuring fair laws and social protection for all.",
+    mistakeWord: "ensuring",
+    correctAnswer: "ensure",
+    explanation: "Modal verbs like 'must' are followed by the base infinitive verb ('must ensure')."
   },
-  // 4. Grammar Mistake Catching
+  // 4. Grammar Mistake Catching (Present Simple / Plural Subject)
   {
     id: "b4",
     type: "grammar",
     typeName: "Catch Grammar Mistake",
-    instruction: "Click on the mistaken word in the sentence, type the correction, and click Submit.",
-    sentence: "Diana helped patients who was suffering from serious illness.",
-    mistakeWord: "was",
-    correctAnswer: "were",
-    explanation: "The subject 'patients' is plural, so the verb must be 'were suffering'."
+    instruction: "Click on the mistaken word in the sentence, type the correct form, and click Submit.",
+    sentence: "Not all people who experiences poverty become criminals.",
+    mistakeWord: "experiences",
+    correctAnswer: "experience",
+    explanation: "The relative pronoun 'who' refers to the plural noun 'people', so the verb is 'experience' (plural)."
   },
   // 5. Odd One Out
   {
     id: "b5",
     type: "odd_one_out",
     typeName: "Odd One Out",
-    instruction: "Select the word that does NOT belong with media and photography.",
-    options: ["Photographer", "Picture", "Camera", "Hospital"],
-    correctAnswer: "Hospital",
-    explanation: "'Photographer', 'Picture', and 'Camera' are directly related to photography; 'Hospital' relates to healthcare."
+    instruction: "Select the word that does NOT belong based on causes of crime in the text.",
+    options: ["Poverty", "Lack of education", "Family problems", "Fair laws"],
+    correctAnswer: "Fair laws",
+    explanation: "Poverty, Lack of education, and Family problems are causes of crime; Fair laws help prevent crime."
   },
   // 6. Odd One Out
   {
     id: "b6",
     type: "odd_one_out",
     typeName: "Odd One Out",
-    instruction: "Select the odd word out based on emotional attitudes.",
-    options: ["Sympathetic", "Caring", "Unhappy", "Indifferent"],
-    correctAnswer: "Indifferent",
-    explanation: "Diana was caring and sympathetic to unhappy people; 'Indifferent' means having no care or sympathy at all."
+    instruction: "Select the odd word out based on crimes vs positive values.",
+    options: ["Theft", "Fraud", "Robbery", "Respect"],
+    correctAnswer: "Respect",
+    explanation: "Theft, Fraud, and Robbery are harmful crimes; Respect is a positive moral value."
   },
   // 7. Odd One Out
   {
     id: "b7",
     type: "odd_one_out",
     typeName: "Odd One Out",
-    instruction: "Select the odd word out based on personal relationships in Diana's life.",
-    options: ["Marriage", "Divorce", "Husband", "Factory"],
-    correctAnswer: "Factory",
-    explanation: "'Marriage', 'Divorce', and 'Husband' describe Diana's marital life with Prince Charles; 'Factory' is unrelated."
+    instruction: "Select the odd word out based on social support and solutions.",
+    options: ["Family support", "Employment opportunities", "Social services", "Illegal behavior"],
+    correctAnswer: "Illegal behavior",
+    explanation: "Family support, Employment opportunities, and Social services are supportive solutions; Illegal behavior is crime."
   },
   // 8. Odd One Out
   {
     id: "b8",
     type: "odd_one_out",
     typeName: "Odd One Out",
-    instruction: "Select the odd word out based on grammatical verb forms.",
-    options: ["Decided", "Suffering", "Attracted", "Remained"],
-    correctAnswer: "Suffering",
-    explanation: "'Decided', 'Attracted', and 'Remained' are past simple (-ed) verbs; 'Suffering' is a present participle (-ing)."
+    instruction: "Select the odd word out based on negative circumstances vs proactive solutions.",
+    options: ["Unemployment", "Poverty", "Peer pressure", "Education"],
+    correctAnswer: "Education",
+    explanation: "Unemployment, Poverty, and Peer pressure are risk factors leading to crime; Education is a proactive solution."
   },
   // 9. Reading Comprehension Test
   {
@@ -262,15 +272,15 @@ export const TEAM_BLUE_QUESTIONS = [
     type: "test",
     typeName: "Reading Test",
     instruction: "Read the question and select the correct answer according to the passage.",
-    question: "Which specific health charity organization is named in the passage?",
+    question: "Does the passage state that all people living in poverty become criminals?",
     options: [
-      "A) The International Red Cross Hospital",
-      "B) The National AIDS Trust",
-      "C) The World Health Organization Board",
-      "D) The Royal Children's Clinic"
+      "A) Yes, anyone in poverty will definitely commit a crime",
+      "B) No, not all people who experience poverty become criminals",
+      "C) Yes, poverty is the only existing reason for crime",
+      "D) No, wealthy individuals never commit any offenses"
     ],
     correctAnswer: "B",
-    explanation: "The passage explicitly names: '...did a lot of work for the National AIDS Trust; she visited people suffering from AIDS.'"
+    explanation: "Paragraph 1 clearly states: 'However, not all people who experience poverty or difficult circumstances become criminals.'"
   },
   // 10. Reading Comprehension Test
   {
@@ -278,15 +288,15 @@ export const TEAM_BLUE_QUESTIONS = [
     type: "test",
     typeName: "Reading Test",
     instruction: "Read the question and select the correct answer according to the passage.",
-    question: "How did Diana leverage her celebrity status as a 'star'?",
+    question: "Which four crimes are explicitly named as causing serious harm to victims?",
     options: [
-      "A) She used her influence to attract attention to charitable causes",
-      "B) She started an acting career in television films",
-      "C) She charged photographers money for every picture",
-      "D) She completely stopped talking to the public"
+      "A) Theft, robbery, fraud, and cybercrime",
+      "B) Speeding, littering, jaywalking, and noise",
+      "C) Arriving late, failing an exam, forgetting homework, and sleeping",
+      "D) Eating fast food, watching TV, playing games, and shopping"
     ],
     correctAnswer: "A",
-    explanation: "The text says: 'In addition to her image as a \"star\", Princess Diana used her influence to attract attention to some charities.'"
+    explanation: "Paragraph 2 states: 'Some crimes, such as theft, robbery, fraud, and cybercrime, can have serious consequences for victims.'"
   },
   // 11. Reading Comprehension Test
   {
@@ -294,15 +304,15 @@ export const TEAM_BLUE_QUESTIONS = [
     type: "test",
     typeName: "Reading Test",
     instruction: "Read the question and select the correct answer according to the passage.",
-    question: "Which group of people in need did Diana visit regularly?",
+    question: "How can governments actively contribute to crime reduction?",
     options: [
-      "A) Homeless people",
-      "B) Movie directors",
-      "C) Wealthy business owners",
-      "D) Foreign ambassadors"
+      "A) By creating jobs, improving social services, and ensuring fair laws",
+      "B) By shutting down all public transportation at night",
+      "C) By banning internet communication and computers",
+      "D) By cutting all spending on public schools"
     ],
     correctAnswer: "A",
-    explanation: "The passage says: 'She used to visit homeless people regularly and did a lot of work for the National AIDS Trust.'"
+    explanation: "Paragraph 3 explains: 'Governments can also reduce crime by creating jobs, improving social services, and ensuring fair laws.'"
   },
   // 12. Reading Comprehension Test
   {
@@ -310,14 +320,14 @@ export const TEAM_BLUE_QUESTIONS = [
     type: "test",
     typeName: "Reading Test",
     instruction: "Read the question and select the correct answer according to the passage.",
-    question: "It is implied in the passage that Diana's relationship with Prince Charles:",
+    question: "According to the final sentence, what may reduce crime in the long term?",
     options: [
-      "A) Was completely free of any public curiosity",
-      "B) Ended in a marriage failure and divorce",
-      "C) Kept her completely hidden from the world",
-      "D) Prevented her from ever helping charities"
+      "A) Helping people make better choices and providing opportunities for a better life",
+      "B) Building taller fences around residential areas",
+      "C) Increasing punishments while ignoring prevention completely",
+      "D) Preventing young people from attending schools"
     ],
-    correctAnswer: "B",
-    explanation: "The passage states that they experienced problems and 'When they divorced she remained very popular', indicating the marriage ended in divorce."
+    correctAnswer: "A",
+    explanation: "The passage finishes: 'Helping people make better choices and providing opportunities for a better life may reduce crime in the long term.'"
   }
 ];

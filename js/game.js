@@ -588,18 +588,38 @@ class BattleGame {
   }
 
   renderPassageModal() {
+    const headTitle = document.getElementById("passage-modal-head-title");
+    const subtitle = document.getElementById("passage-modal-subtitle");
     const textContainer = document.getElementById("passage-text-content");
     const vocabContainer = document.getElementById("passage-vocab-list");
+    const grammarContainer = document.getElementById("passage-grammar-list");
+
+    if (headTitle) {
+      headTitle.textContent = `📖 ${PASSAGE_DATA.title}`;
+    }
+
+    if (subtitle) {
+      subtitle.textContent = PASSAGE_DATA.subtitle || "";
+    }
 
     if (textContainer) {
       textContainer.textContent = PASSAGE_DATA.text;
     }
 
-    if (vocabContainer) {
+    if (vocabContainer && PASSAGE_DATA.vocabulary) {
       vocabContainer.innerHTML = PASSAGE_DATA.vocabulary.map(v => `
         <div class="vocab-item">
           <strong>${v.word}</strong>
           <span>${v.def}</span>
+        </div>
+      `).join("");
+    }
+
+    if (grammarContainer && PASSAGE_DATA.grammarFocus) {
+      grammarContainer.innerHTML = PASSAGE_DATA.grammarFocus.map(g => `
+        <div style="margin-bottom: 8px;">
+          <strong style="color: #67e8f9; display: block; font-size: 0.95rem;">${g.rule}</strong>
+          <span style="color: #e2e8f0; font-size: 0.9rem; font-style: italic;">e.g., "${g.example}"</span>
         </div>
       `).join("");
     }

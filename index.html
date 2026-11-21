@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MSI Games - Team Red vs Team Blue Battle Arena</title>
-  <meta name="description" content="Dual team ESL battle arena based on Princess Diana reading passage with grammar error spotting, odd-one-out, and reading tests.">
+  <title>MSI Games - Team Red vs Team Blue Battle Arena | Crime & Society</title>
+  <meta name="description" content="Dual team ESL battle arena based on Crime and Society reading passage with grammar error spotting, odd-one-out, and reading tests.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
@@ -22,7 +22,7 @@
       <div class="brand-crown">👑</div>
       <div class="brand-text">
         <h1>MSI ARENA DUEL</h1>
-        <p>ESL Students · Princess Diana Unit</p>
+        <p>ESL Students · Crime and Society Unit</p>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
       </button>
 
       <!-- Reading Passage Reference Button -->
-      <button class="hud-btn" id="open-passage-btn" title="Open Princess Diana Reading Passage">
+      <button class="hud-btn" id="open-passage-btn" title="Open Crime and Society Reading Passage">
         <span>📖</span>
         <span>Passage</span>
       </button>
@@ -108,7 +108,7 @@
       <div class="winner-crown-hero">⚡</div>
       <h2 class="winner-headline tie-win" style="font-size: 2rem;">READY FOR THE BATTLE?</h2>
       <p class="winner-reason" style="margin-bottom: 24px;">
-        12 Different Questions per Team: Spot Grammar Mistakes, Odd One Out & Reading Comprehension from the "Princess Diana" passage!
+        12 Different Questions per Team: Spot Grammar Mistakes (Present Simple & Modals), Odd One Out & Reading Comprehension from "Crime and Society"!
       </p>
       <button class="restart-game-btn" id="start-battle-btn">
         🔥 START ARENA BATTLE
@@ -122,13 +122,18 @@
   <div class="modal-backdrop hidden" id="passage-modal">
     <div class="passage-modal-card">
       <div class="modal-head">
-        <h2>📖 Princess Diana (ESL_STUDENTS #72)</h2>
+        <h2 id="passage-modal-head-title">📖 Crime and Society</h2>
         <button class="modal-close-btn" id="close-passage-btn">✕</button>
       </div>
       <div class="modal-body">
+        <h3 id="passage-modal-subtitle" style="color: #67e8f9; margin-bottom: 12px; font-size: 1.15rem;">Why Does Crime Happen?</h3>
         <div class="passage-text-quote" id="passage-text-content"></div>
-        <h4 style="margin-bottom: 12px; color: #ffd859; font-size: 1.05rem;">Key Vocabulary Glossary:</h4>
+
+        <h4 style="margin: 20px 0 10px 0; color: #ffd859; font-size: 1.05rem;">Key Vocabulary Glossary:</h4>
         <div class="vocab-grid" id="passage-vocab-list"></div>
+
+        <h4 style="margin: 24px 0 10px 0; color: #ff82a9; font-size: 1.05rem;">Grammar Focus (Present Simple & Modals):</h4>
+        <div class="grammar-focus-box" id="passage-grammar-list" style="background: rgba(255, 255, 255, 0.05); padding: 14px 18px; border-radius: 14px; border-left: 4px solid #ff2a6d;"></div>
       </div>
     </div>
   </div>
